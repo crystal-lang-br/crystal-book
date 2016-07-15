@@ -1,3 +1,3 @@
-# Types and methods
+# Tipos e métodos
 
-The next sections will assume you know what [object oriented programming](http://en.wikipedia.org/wiki/Object-oriented_programming) is, as well as the concepts of [classes](http://en.wikipedia.org/wiki/Class_%28computer_programming%29) and [methods](http://en.wikipedia.org/wiki/Method_%28computer_programming%29).
+As próximas seções presumem que você saiba o que é [programação orientada a objetos](https://pt.wikipedia.org/wiki/Orienta%C3%A7%C3%A3o_a_objetos), bem como o conceito de [classes](https://pt.wikipedia.org/wiki/Classe_(programa%C3%A7%C3%A3o)) e [métodos](https://pt.wikipedia.org/wiki/M%C3%A9todo_(programa%C3%A7%C3%A3o)).

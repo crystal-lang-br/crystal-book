@@ -1,21 +1,21 @@
-# The Program
+# O Programa
 
-The program is a global object in which you can define types, methods and file-local variables.
+O programa é um objeto global onde você pode definir tipos, métodos e variáveis locais em relação ao arquivo.
 
 ```crystal
-# Defines a method in the program
-def add(x, y)
+# Define um método no programa
+def somar(x, y)
   x + y
 end
 
-# Invokes the add method in the program
-add(1, 2) #=> 3
+# Invoca o método somar no programa
+somar(1, 2) #=> 3
 ```
 
-A method's value is the value of its last expression, there's no need for explicit `return` expressions. However, explicit `return` are possible:
+O valor de um método é o valor de sua última expressão, não existe a necessidade de escrever instruções `return` explícitas. No entanto, elas são possíveis:
 
 ```crystal
-def even?(num)
+def par?(num)
   if num % 2 == 0
     return true
   end
@@ -24,19 +24,19 @@ def even?(num)
 end
 ```
 
-When invoking a method without a receiver, like `add(1, 2)`, it will be searched in the program if not found in the current type or any of its ancestors.
+Ao invocar um método sem um receptor, como por exemplo `somar(1, 2)`, ele será procurado no programa se não for encontado no tipo atual ou em algum de seus ancestrais.
 
 ```crystal
-def add(x, y)
+def somar(x, y)
   x + y
 end
 
 class Foo
   def bar
-    # invokes the program's add method
-    add(1, 2)
+    # invoca o método somar do programa
+    somar(1, 2)
 
-    # invokes Foo's baz method
+    # invoca o método baz de Foo
     baz(1, 2)
   end
 
@@ -46,7 +46,7 @@ class Foo
 end
 ```
 
-If you want to invoke the program's method, even though the current type defines a method with the same name, prefix the call with `::`:
+Se você quiser invocar o método do programa, mesmo que o tipo atual define um método com o mesmo nome, coloque o prefixo `::`:
 
 ```crystal
 def baz(x, y)
@@ -65,39 +65,39 @@ class Foo
 end
 ```
 
-Variables declared in a program are not visible inside methods:
+As variáveis declaradas em um programa não são visíveis dentro de métodos:
 
 ```crystal
 x = 1
 
-def add(y)
+def somar(y)
   x + y # error: undefined local variable or method 'x'
 end
 
-add(2)
+somar(2)
 ```
 
-Parentheses in method invocations are optional:
+Os parênteses são opcionais nas invocações de métodos:
 
 ```crystal
-add 1, 2 # same as add(1, 2)
+somar 1, 2 # a mesma coisa que somar(1, 2)
 ```
 
-## Main code
+## Código Principal
 
-Main code, the code that is run when you compile and run a program, can be written directly in a source file without the need to put it in a special "main" method:
+O código principal, aquele código que executa quando você compila e roda um programa, pode ser escrito diretamente no arquivo de código fonte sem a necessidade de colocá-lo em um método especial "main":
 
 ```crystal
-# This is a program that prints "Hello Crystal!"
-puts "Hello Crystal!"
+# Este é um programa que imprime "Olá Crystal!"
+puts "Olá Crystal!"
 ```
 
-Main code can also be inside type declarations:
+O código principal também pode ser colocado dentro de declarações de tipo:
 
 ```crystal
-# This is a program that prints "Hello"
+# Este é um programa que imprime "Hello"
 class Hello
-  # 'self' here is the Hello class
+  # 'self' aqui é a classe Hello
   puts self
 end
 ```
